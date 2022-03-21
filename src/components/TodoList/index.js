@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addTodo } from "../../redux/actions";
 import Todo from "../Todo";
+import { todoListSelector } from "../../redux/selectors";
 export default function TodoList() {
   const [todoName, setTodoName] = useState("");
-  const todoList = useSelector((state) => state.todoList);
+  const todoList = useSelector(todoListSelector);
   const dispatch = useDispatch();
   const handleAddButtonClick = () => {
     dispatch(

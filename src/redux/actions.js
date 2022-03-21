@@ -11,3 +11,10 @@ export const deleteTodo = (id) => {
     payload: id,
   };
 };
+
+export const searchFilterChange = (text) => {
+  return {
+    type: "filters/searchFilterChange",
+    payload: text,
+  };
+};
