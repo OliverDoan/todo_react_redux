@@ -1,14 +1,20 @@
-import { Checkbox, Row } from "antd";
+import { Row, Checkbox } from "antd";
 import { useState } from "react";
 import { DeleteTwoTone } from "@ant-design/icons";
+import { deleteTodo } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
-export default function Todo({ name }) {
+export default function Todo({ name, id }) {
   const [checked, setChecked] = useState(false);
 
   const toggleCheckbox = () => {
     setChecked(!checked);
   };
+  const dispatch = useDispatch();
 
+  const handleDeleteButtonClick = () => {
+    dispatch(deleteTodo(id));
+  };
   return (
     <Row
       justify="space-between"
@@ -27,6 +33,7 @@ export default function Todo({ name }) {
           justifyContent: "center",
           color: "red",
         }}
+        onClick={handleDeleteButtonClick}
       />
     </Row>
   );
